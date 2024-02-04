@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "618127554627",
+    "project_id": "zoomclone-3e8d1",
+    "storage_bucket": "zoomclone-3e8d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618127554627:android:2826dd99589f01ae0c3cf6",
+        "android_client_info": {
+          "package_name": "rohan.app.zoom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEhhNyatuZkk_zeiBBC43QImC53lQ3sek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
