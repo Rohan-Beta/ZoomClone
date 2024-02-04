@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zoom/provider/internet_provider.dart';
 import 'package:zoom/provider/sign_in_provider.dart';
+import 'package:zoom/screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,13 +39,11 @@ class ZoomClone extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => InternetProvider()),
       ],
       child: MaterialApp(
-        title: "Amazon Clone",
+        title: "Zoom Clone",
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           body: SafeArea(
-            child: Center(
-              child: Text("hello world"),
-            ),
+            child: MySplashScreen(),
           ),
         ),
       ),
