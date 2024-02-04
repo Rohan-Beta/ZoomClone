@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:zoom/provider/internet_provider.dart';
+import 'package:zoom/provider/sign_in_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,32 +24,30 @@ void main() async {
   } else {
     await Firebase.initializeApp();
   }
-  runApp(const AmazonClone());
+  runApp(const ZoomClone());
 }
 
-class AmazonClone extends StatelessWidget {
-  const AmazonClone({super.key});
+class ZoomClone extends StatelessWidget {
+  const ZoomClone({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return
-        // MultiProvider(
-        //   providers: [
-        //     ChangeNotifierProvider(create: (context) => SignInProvider()),
-        //     ChangeNotifierProvider(create: (context) => InternetProvider()),
-        //   ],
-        // child:
-        MaterialApp(
-      title: "Amazon Clone",
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SafeArea(
-          child: Center(
-            child: Text("hello world"),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => SignInProvider()),
+        ChangeNotifierProvider(create: (context) => InternetProvider()),
+      ],
+      child: MaterialApp(
+        title: "Amazon Clone",
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: SafeArea(
+            child: Center(
+              child: Text("hello world"),
+            ),
           ),
         ),
       ),
     );
-    // );
   }
 }
