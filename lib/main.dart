@@ -4,9 +4,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:zoom/constants/MyColor.dart';
 import 'package:zoom/provider/internet_provider.dart';
 import 'package:zoom/provider/sign_in_provider.dart';
-import 'package:zoom/screens/splash_screen.dart';
+import 'package:zoom/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,8 +20,8 @@ void main() async {
           projectId: "zoomclone-3e8d1",
           storageBucket: "zoomclone-3e8d1.appspot.com",
           messagingSenderId: "618127554627",
-          appId: "1:618127554627:web:300a1e2749436d710c3cf6",
-          measurementId: "G-P0X36F31VJ"),
+          appId: "1:618127554627:web:37babb34b73a6f860c3cf6",
+          measurementId: "G-6W8V1TCDS9"),
     );
   } else {
     await Firebase.initializeApp();
@@ -41,11 +42,10 @@ class ZoomClone extends StatelessWidget {
       child: MaterialApp(
         title: "Zoom Clone",
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          body: SafeArea(
-            child: MySplashScreen(),
-          ),
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: backgroundColor,
         ),
+        home: HomeScreen(),
       ),
     );
   }

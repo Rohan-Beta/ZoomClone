@@ -34,9 +34,9 @@ class _SplashScreenState extends State<MySplashScreen> {
       body: SafeArea(
         child: Center(
           child: Image(
-            // image: AssetImage("MyAssets/splashimage.png"),
-            image: NetworkImage(
-                "https://miro.medium.com/v2/resize:fit:500/1*Q7TzUZZ9bOZO7rQsbc6IGg.png"),
+            image: AssetImage("MyAssets/splashimage.jpeg"),
+            // image: NetworkImage(
+            //     "https://miro.medium.com/v2/resize:fit:500/1*Q7TzUZZ9bOZO7rQsbc6IGg.png"),
             height: 100,
             width: 100,
           ),
