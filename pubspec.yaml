@@ -49,6 +49,7 @@ dependencies:
   rounded_loading_button: ^2.1.0
   font_awesome_flutter: ^10.6.0
   connectivity_plus: ^5.0.2
+  # jitsi_meet_fix: ^4.0.5
 
 dev_dependencies:
   flutter_test:

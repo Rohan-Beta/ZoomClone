@@ -5,6 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:zoom/constants/MyColor.dart';
 import 'package:zoom/provider/sign_in_provider.dart';
+import 'package:zoom/screens/join_meeting.dart';
+import 'package:zoom/screens/new_metting.dart';
+import 'package:zoom/utills/next_screen.dart';
 import 'package:zoom/utills/screen_size.dart';
 import 'package:zoom/widget/icon_horizontal_view.dart';
 
@@ -57,12 +60,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconHorizontalView(
-                    onPressed: () {},
+                    onPressed: () {
+                      nextScreen(context, NewMeeting());
+                    },
                     MyIcon: Icons.videocam,
                     MyText: "New Metting",
                   ),
                   IconHorizontalView(
-                    onPressed: () {},
+                    onPressed: () {
+                      nextScreen(context, JoinMeeting());
+                    },
                     MyIcon: Icons.add_box_rounded,
                     MyText: "Join Meeting",
                   ),
