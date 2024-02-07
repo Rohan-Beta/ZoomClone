@@ -9,7 +9,9 @@ Create Zoom Clone using jitsi_meet
 ## add dependencies in pubspec.yaml
 
 dependencies:
+
   .........
+
   jitsi_meet_flutter_sdk: ^0.1.4 <!-- update the version -->
 
 
@@ -41,7 +43,9 @@ class JitsiProvider {
     bool isGroup = true,
 
     
-  }) async {
+  }) 
+  
+  async {
 
   
     try {
@@ -70,4 +74,5 @@ class JitsiProvider {
       print("error: $error");
     }
   }
+  
 }
