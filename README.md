@@ -4,13 +4,62 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Create Zoom Clone using jitsi_meet
 
-A few resources to get you started if this is your first Flutter project:
+## add dependencies in pubspec.yaml
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+dependencies:
+  .........
+  jitsi_meet_flutter_sdk: ^0.1.4 <!-- update the version -->
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Create a JitsiProvider to handle calls
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
+
+final jitsiProvider =
+Provider((ref) => JitsiProvider(ref));
+
+class JitsiProvider {
+
+  final Ref _ref;
+  JitsiProvider(this._ref);
+
+  void createMeeting({
+    required String roomName,
+    required bool isAudioMuted,
+    required bool isVideoMuted,
+    String username = '',
+    String email = '',
+    bool preJoined = true,
+    bool isVideo = true,
+    bool isGroup = true,
+  }) async {
+    try {
+      Map<String, Object> featureFlag =  {};
+      featureFlag['welcomepage.enabled'] = false;
+      featureFlag['prejoinpage.enabled'] = preJoined;
+      featureFlag['add-people.enabled'] = isGroup;
+
+      var options = JitsiMeetConferenceOptions(
+        room: roomName,
+          serverURL: 'https://meet.codewithbisky.com',
+          configOverrides: {
+            "startWithAudioMuted": isAudioMuted,
+            "startWithVideoMuted": isVideoMuted,
+            "subject" : "Jitsi with Flutter",
+          },
+        userInfo: JitsiMeetUserInfo(
+            displayName: username,
+            email: email
+        ),
+        featureFlags: featureFlag,
+      );
+      var jitsiMeet = JitsiMeet();
+      await jitsiMeet.join( options);
+    } catch (error) {
+      print("error: $error");
+    }
+  }
+}
