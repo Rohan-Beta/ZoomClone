@@ -1,15 +1,12 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:zoom/constants/MyColor.dart';
-import 'package:zoom/provider/sign_in_provider.dart';
-import 'package:zoom/screens/join_meeting.dart';
-import 'package:zoom/screens/new_metting.dart';
-import 'package:zoom/utills/next_screen.dart';
-import 'package:zoom/utills/screen_size.dart';
-import 'package:zoom/widget/icon_horizontal_view.dart';
+import 'package:zoom/screens/contact_meeting_screen.dart';
+import 'package:zoom/screens/history_meeting_screen.dart';
+import 'package:zoom/screens/meeting_screen.dart';
+import 'package:zoom/screens/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,16 +20,16 @@ class _HomeScreenState extends State<HomeScreen> {
       RoundedLoadingButtonController();
   int _page = 0;
 
-  Future getData() async {
-    final sp = context.read<SignInProvider>();
-    sp.getDataFromSharedPreferences();
-  }
+  // Future getData() async {
+  //   final sp = context.read<SignInProvider>();
+  //   sp.getDataFromSharedPreferences();
+  // }
 
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   getData();
+  // }
 
   onPageChanged(int page) {
     setState(() {
@@ -40,64 +37,21 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  List<Widget> pages = [
+    Meeting(),
+    HistoryMeetingScreen(),
+    ContactMeetingScreen(),
+    SettingScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MyScreenSize().getScreenSize();
-    final sp = context.read<SignInProvider>();
+    // final sp = context.read<SignInProvider>();
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: backgroundColor,
-        elevation: 0,
-        title: Text("Meet & Chat"),
-        centerTitle: true,
-      ),
       body: SafeArea(
         child: Scaffold(
-          body: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconHorizontalView(
-                    onPressed: () {
-                      nextScreen(context, NewMeeting());
-                    },
-                    MyIcon: Icons.videocam,
-                    MyText: "New Metting",
-                  ),
-                  IconHorizontalView(
-                    onPressed: () {
-                      nextScreen(context, JoinMeeting());
-                    },
-                    MyIcon: Icons.add_box_rounded,
-                    MyText: "Join Meeting",
-                  ),
-                  IconHorizontalView(
-                    onPressed: () {},
-                    MyIcon: Icons.calendar_month_outlined,
-                    MyText: "Schedule",
-                  ),
-                  IconHorizontalView(
-                    onPressed: () {},
-                    MyIcon: Icons.arrow_upward_rounded,
-                    MyText: "Share Screen",
-                  ),
-                ],
-              ),
-              Expanded(
-                child: Center(
-                  child: Text(
-                    "Create/Join Meeting with just a click!",
-                    maxLines: 1,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          body: pages[_page],
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: footerColor,
             selectedItemColor: Colors.white,
@@ -128,12 +82,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   Icons.settings,
                 ),
                 label: "Settings",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.comment_bank,
-                ),
-                label: "Meet & Chat",
               ),
             ],
           ),
