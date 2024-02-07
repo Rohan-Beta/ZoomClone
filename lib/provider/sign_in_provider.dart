@@ -214,4 +214,25 @@ class SignInProvider extends ChangeNotifier {
     final SharedPreferences s = await SharedPreferences.getInstance();
     s.clear();
   }
+
+  void addToMeetingHistory(String meetingName) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(_uid)
+          .collection("meetings")
+          .add({
+        "meetingName": meetingName,
+        "createdAt": DateTime.now(),
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Stream get meetigngHistory => FirebaseFirestore.instance
+      .collection("users")
+      .doc(_uid)
+      .collection("meetings")
+      .snapshots();
 }

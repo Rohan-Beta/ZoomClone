@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:zoom/constants/MyColor.dart';
-import 'package:zoom/provider/sign_in_provider.dart';
 import 'package:zoom/screens/join_meeting.dart';
 import 'package:zoom/utills/next_screen.dart';
 import 'package:zoom/utills/screen_size.dart';
@@ -21,9 +20,6 @@ class Meeting extends StatelessWidget {
       roomName: MyScreenSize().getUid(),
       isAudioMuted: true,
       isVideoMuted: true,
-      username: SignInProvider().name.toString(),
-      email: SignInProvider().email.toString(),
-      image: SignInProvider().imageUrl.toString(),
     );
   }
 
@@ -48,7 +44,7 @@ class Meeting extends StatelessWidget {
               ),
               IconHorizontalView(
                 onPressed: () {
-                  nextScreen(context, JoinMeeting());
+                  nextScreen(context, JoinMeetingScreen());
                 },
                 MyIcon: Icons.add_box_rounded,
                 MyText: "Join Meeting",

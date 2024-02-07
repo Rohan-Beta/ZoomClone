@@ -31,10 +31,11 @@ class _SplashScreenState extends State<MySplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueAccent,
       body: SafeArea(
         child: Center(
           child: Image(
-            image: AssetImage("MyAssets/splashimage.jpeg"),
+            image: AssetImage("MyAssets/splashimage.png"),
             // image: NetworkImage(
             //     "https://miro.medium.com/v2/resize:fit:500/1*Q7TzUZZ9bOZO7rQsbc6IGg.png"),
             height: 100,

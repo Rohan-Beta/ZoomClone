@@ -1,7 +1,10 @@
 // ignore_for_file: avoid_print
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
+import 'package:zoom/provider/sign_in_provider.dart';
 
 final jitsiProvider = Provider((ref) => JitsiProvider());
 
@@ -12,9 +15,6 @@ class JitsiProvider {
     required String roomName,
     required bool isAudioMuted,
     required bool isVideoMuted,
-    required String username,
-    required String email,
-    required String image,
     bool preJoined = true,
     bool isVideo = true,
     bool isGroup = true,
@@ -34,13 +34,14 @@ class JitsiProvider {
           // "subject": "Jitsi with Flutter",
         },
         userInfo: JitsiMeetUserInfo(
-          displayName: username,
-          email: email,
-          avatar: image,
+          displayName: SignInProvider().name,
+          email: SignInProvider().email,
+          avatar: SignInProvider().imageUrl,
         ),
         featureFlags: featureFlag,
       );
       var jitsiMeet = JitsiMeet();
+      SignInProvider().addToMeetingHistory(roomName);
       await jitsiMeet.join(options);
     } catch (error) {
       print("error: $error");

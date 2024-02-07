@@ -8,6 +8,7 @@ import 'package:zoom/constants/MyColor.dart';
 import 'package:zoom/provider/internet_provider.dart';
 import 'package:zoom/provider/sign_in_provider.dart';
 import 'package:zoom/screens/home_screen.dart';
+import 'package:zoom/screens/settings_screen.dart';
 import 'package:zoom/screens/splash_screen.dart';
 
 void main() async {
