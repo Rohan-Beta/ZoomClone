@@ -43,7 +43,8 @@ class JitsiProvider {
     bool isGroup = true,
 
     
-  }) 
+  }
+  ) 
   
   async {
 
