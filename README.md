@@ -14,12 +14,15 @@ dependencies:
 
 
 ## Create a JitsiProvider to handle calls
-(
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
+
 
 final jitsiProvider =
 Provider((ref) => JitsiProvider(ref));
+
 
 class JitsiProvider {
 
@@ -27,6 +30,7 @@ class JitsiProvider {
   JitsiProvider(this._ref);
 
   void createMeeting({
+  
     required String roomName,
     required bool isAudioMuted,
     required bool isVideoMuted,
@@ -35,7 +39,11 @@ class JitsiProvider {
     bool preJoined = true,
     bool isVideo = true,
     bool isGroup = true,
+
+    
   }) async {
+
+  
     try {
       Map<String, Object> featureFlag =  {};
       featureFlag['welcomepage.enabled'] = false;
@@ -63,4 +71,3 @@ class JitsiProvider {
     }
   }
 }
-)
