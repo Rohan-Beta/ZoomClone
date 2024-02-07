@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 const backgroundColor = Color.fromRGBO(36, 36, 36, 1);

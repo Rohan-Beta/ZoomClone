@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
-import 'package:provider/provider.dart';
 import 'package:zoom/constants/MyColor.dart';
 import 'package:zoom/provider/sign_in_provider.dart';
 import 'package:zoom/widget/jitsi_meet_widget.dart';
