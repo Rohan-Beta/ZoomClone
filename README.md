@@ -14,7 +14,7 @@ dependencies:
 
 
 ## Create a JitsiProvider to handle calls
-
+(
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
 
@@ -63,3 +63,4 @@ class JitsiProvider {
     }
   }
 }
+)
