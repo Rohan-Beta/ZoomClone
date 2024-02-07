@@ -12,7 +12,7 @@ dependencies:
 
   .........
 
-  jitsi_meet_flutter_sdk: ^0.1.4 <!-- update the version -->
+  jitsi_meet_flutter_sdk: ^0.1.4   <!-- update the version -->
 
 
 ## Create a JitsiProvider to handle calls
