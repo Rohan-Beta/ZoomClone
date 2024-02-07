@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-Create Zoom Clone using jitsi_meet
+Create Zoom Clone using jitsi_meet and firebase
 
 ## add dependencies in pubspec.yaml
 
